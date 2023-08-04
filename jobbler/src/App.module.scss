@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background-color: #1a1b34;
+  font-family: "Quicksand";
+  color: #fff;
+  overflow: hidden;
+}

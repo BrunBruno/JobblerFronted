@@ -1,0 +1,42 @@
+.container {
+  height: 100%;
+  background-color: #bebad4;
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem;
+  padding: 5rem;
+  background-image: url("public/sumsub.png");
+  background-repeat: no-repeat;
+  background-position: 100% 250%;
+  background-size: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  .content {
+    background-color: rgba(#f3ead9, 0.25);
+    border-radius: 5rem;
+    padding: 3rem;
+    height: 30rem;
+    width: 60%;
+    border: solid 0.1rem #999;
+  }
+
+  label {
+    background-color: rgba(#fff, 0.1);
+    padding: 3rem 6rem;
+    border-radius: 10rem;
+    font-size: 2rem;
+    font-family: "Quicksand";
+    font-weight: 300;
+    border: solid 0.1rem #999;
+    color: #000;
+
+    &:hover {
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+  }
+}
