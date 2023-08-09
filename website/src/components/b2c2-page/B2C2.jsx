@@ -6,7 +6,7 @@ function B2C2() {
       <div className={classes["side-bar"]}>
         <div className={classes.bar}>
           <div className={classes.logo}>
-            <img src="public/b2c2-otc-ltd-logo-vector.png" />
+            <img src="/b2c2-otc-ltd-logo-vector.png" />
           </div>
           <nav className={classes.nav}>
             <ul>

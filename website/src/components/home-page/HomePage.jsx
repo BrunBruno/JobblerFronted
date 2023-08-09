@@ -30,7 +30,7 @@ function HomePage() {
             <h2>Your Tasks</h2>
           </div>
           <div className={classes.image}>
-            <img src="public/icon.png" />
+            <img src="/icon.png" />
           </div>
         </div>
         <div className={classes.buttons}>
