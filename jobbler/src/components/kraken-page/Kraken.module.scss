@@ -1,0 +1,399 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 30rem auto;
+  grid-template-rows: 10rem auto;
+  background-color: #fff;
+  color: #000;
+
+  .logo {
+    border-right: solid 0.3rem #ebebeb;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  .side-bar {
+    border-right: solid 0.3rem #ebebeb;
+    padding: 2rem;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      li {
+        position: relative;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        transition: all 0.3s;
+
+        &:hover {
+          cursor: pointer;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 80%;
+            background-color: #7fe1fa;
+            filter: blur(0.75rem);
+            opacity: 0.1;
+            border-radius: 4rem;
+          }
+        }
+
+        p {
+          width: 3rem;
+          aspect-ratio: 1/1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        span {
+          font-size: 1.4rem;
+          color: #197bbd;
+          font-weight: 600;
+        }
+
+        &:nth-child(1) {
+          background-color: #f0f7ff;
+        }
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 100;
+    }
+  }
+
+  .content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(55% - 2rem) calc(45% - 2rem);
+    padding: 4rem;
+    padding-top: 0;
+    gap: 4rem;
+
+    .column {
+      height: 100%;
+      display: grid;
+      $gap: 2rem;
+      gap: $gap;
+
+      &:nth-child(1) {
+        grid-template-rows: calc(48% - $gap / 2) calc(52% - $gap / 2);
+      }
+
+      &:nth-child(2) {
+        grid-template-rows: calc(36% - $gap) calc(32% - $gap / 2) calc(
+            32% - $gap / 2
+          );
+      }
+
+      @mixin item {
+        height: 100%;
+        border-radius: 2rem;
+        box-shadow: 0 0.2rem 0.5rem 0 #aaa;
+        padding: 2rem;
+      }
+
+      .balances {
+        @include item;
+
+        .inner {
+          display: grid;
+          grid-template-columns: 70% 30%;
+          height: calc(100% - 2rem);
+          padding-top: 2rem;
+
+          .card {
+            position: relative;
+            $mrg: 4rem;
+            margin: 0 $mrg;
+            width: calc(100% - 2 * $mrg);
+            height: 100%;
+            background-color: #197bbd;
+            border-radius: 2rem;
+            padding: 2rem;
+
+            p {
+              font-size: 1.6rem;
+              color: #fff;
+            }
+
+            span {
+              color: #fff;
+              opacity: 0.5;
+              font-size: 0.8rem;
+            }
+
+            svg {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              height: 70%;
+            }
+
+            @mixin arr {
+              position: absolute;
+              width: 1rem;
+              height: 1rem;
+              rotate: 45deg;
+              top: 50%;
+              transform: translateY(-50%);
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            .arr-left {
+              @include arr;
+              left: -2rem;
+              border-left: solid 0.2rem #197bbd;
+              border-bottom: solid 0.2rem #197bbd;
+            }
+
+            .arr-right {
+              @include arr;
+              right: -2rem;
+              border-right: solid 0.2rem #197bbd;
+              border-top: solid 0.2rem #197bbd;
+            }
+          }
+
+          .info {
+            width: 100%;
+            height: 100%;
+            border-left: solid 0.2rem #ebebeb;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-left: 2rem;
+
+            p {
+              span {
+                color: #197bbd;
+                font-size: 2rem;
+                padding: 0;
+              }
+            }
+
+            span {
+              font-size: 0.8rem;
+              color: #000;
+              opacity: 0.8;
+              padding-left: 2rem;
+            }
+          }
+        }
+      }
+
+      .history {
+        @include item;
+        display: grid;
+        grid-template-rows: 3rem 3rem auto;
+        gap: 1rem;
+
+        .table-header {
+          display: flex;
+          justify-content: space-between;
+          padding-right: 2rem;
+        }
+
+        .table {
+          list-style-type: none;
+          overflow-y: scroll;
+          padding-right: 2rem;
+
+          &::-webkit-scrollbar {
+            background-color: #0000;
+            width: 1rem;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #ebebeb;
+            border-radius: 1rem;
+          }
+
+          li {
+            height: 4rem;
+            border-bottom: solid 0.1rem #ebebeb;
+          }
+        }
+      }
+
+      .actions {
+        position: relative;
+        height: 100%;
+        display: flex;
+        gap: 2rem;
+        align-items: end;
+
+        h2 {
+          position: absolute;
+          font-size: 1.6rem;
+          top: 0;
+          left: 0;
+        }
+
+        .action {
+          @include item;
+          width: 100%;
+          height: calc(100% - (1.6rem + 2rem));
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .input {
+            display: inline-flex;
+            overflow: hidden;
+            border-radius: 1rem;
+            width: 100%;
+            border: solid 0.1rem #313a4e;
+
+            .inner-input {
+              width: 70%;
+              background-color: rgba(#ffffff, 0.74);
+              padding: 0.2rem;
+              padding-left: 1rem;
+
+              span {
+                height: 40%;
+                font-size: 0.8rem;
+                color: #313a4e;
+              }
+
+              input {
+                width: 100%;
+                outline: none;
+                border: none;
+                font-family: "Quicksand";
+                font-size: 1rem;
+                background-color: #0000;
+              }
+
+              input::placeholder {
+                color: #000;
+              }
+            }
+
+            button {
+              display: inline-block;
+              width: 30%;
+              background-color: #313a4e;
+              color: #fff;
+              padding: 0.6rem 1rem;
+              outline: none;
+              border: none;
+              font-family: "Quicksand";
+              font-size: 1rem;
+            }
+          }
+
+          span {
+            font-size: 1.6rem;
+            padding: 0 1rem;
+          }
+        }
+      }
+
+      @mixin btn {
+        border: solid 0.1rem #5848d5;
+        padding: 1rem 3rem;
+        font-size: 2rem;
+        border-radius: 4rem;
+        background-color: #0000;
+        outline: none;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .withdraw {
+        @include item;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .status {
+          display: flex;
+          gap: 2rem;
+
+          .logo {
+            background-image: url("kraken-icon-512x512-icmwhmh8.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #5848d5;
+            border: none;
+            width: 4rem;
+          }
+
+          .bar {
+            width: calc(100% - 4rem);
+            .progress-bar {
+              background-color: #ebebeb;
+              border-radius: 1rem;
+              height: 1rem;
+              width: 90%;
+              margin-bottom: 1rem;
+              overflow: hidden;
+
+              .progress {
+                width: 69%;
+                height: 100%;
+                border-radius: 1rem;
+                background-image: linear-gradient(
+                  to right,
+                  #5848d5 50%,
+                  #a76ab6 100%
+                );
+              }
+            }
+
+            span {
+              height: 2rem;
+              font-size: 1.6rem;
+            }
+          }
+        }
+
+        button {
+          @include btn;
+          align-self: center;
+        }
+      }
+
+      .web {
+        @include item;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          @include btn;
+        }
+      }
+    }
+  }
+}
